@@ -1,4 +1,5 @@
 const {resolve} = require('path');
+const webpack = require('webpack');
 const devMode = process.env.NODE_ENV !== 'production'
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // css导出为css文件
@@ -53,6 +54,8 @@ module.exports = {
     devServer: {
         contentBase: resolve(__dirname,'./dist'),
         port: 8010,
+        hot: true,
+        open:true,
         host:'localhost'
     },
     optimization:{
@@ -65,7 +68,10 @@ module.exports = {
             new OptimizeCssAssetsWebpackPlugin({})
         ]
     },
-    plugin:[
+    plugins:[
+        // 该插件的作用就是实现模块热替换，实际上当启动时带上 `--hot` 参数，会注入该插件，生成 .hot-update.json 文件。
+        new webpack.NamedModulesPlugin(), // 用于启动 HMR 时可以显示模块的相对路径
+        new webpack.HotModuleReplacementPlugin(), // Hot Module Replacement 的插件
         new MiniCssExtractPlugin({
             filename:devMode?'css/[name].css':'css/[name].[hash]css', // 导出到dist文件夹下的css文件夹内
             chunkFilename:devMode?'css/[id].css':'css/[id].[hash]css'
