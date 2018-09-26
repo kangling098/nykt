@@ -35,6 +35,7 @@ module.exports = {
                 use: [
                     'style-loader',
                     'css-loader',
+                    'postcss-loader',
                     'less-loader'
                 ],
                 // exclude:/node_modules/,
@@ -65,7 +66,7 @@ module.exports = {
                 parallel: true, // 启用多进程运行改进编译速度
                 sourceMap:true // 生成sourceMap隐射文件
             }),
-            new OptimizeCssAssetsWebpackPlugin({})
+            new OptimizeCssAssetsWebpackPlugin({}) // 压缩css
         ]
     },
     plugins:[
