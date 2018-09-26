@@ -57,15 +57,16 @@ module.exports = {
         port: 8010,
         hot: true,
         open:true,
-        host:'localhost'
+        host:'192.168.2.104'
     },
+    devtool: 'eval-source-map',
     optimization:{
         minimizer:[
-            new UglifyJsPlugin({
-                cache: true, // 启用缓存
-                parallel: true, // 启用多进程运行改进编译速度
-                sourceMap:true // 生成sourceMap隐射文件
-            }),
+            // new UglifyJsPlugin({
+            //     cache: true, // 启用缓存
+            //     parallel: true, // 启用多进程运行改进编译速度
+            //     sourceMap:true // 生成sourceMap隐射文件
+            // }),
             new OptimizeCssAssetsWebpackPlugin({}) // 压缩css
         ]
     },
