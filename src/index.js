@@ -6,10 +6,7 @@ import Mine from './containers/Mine'
 import Profile from './containers/Profile'
 import Layout from './containers/Layout'
 // import store from './store'
-
 import './common/global.less';
-
-
 
 
 
@@ -22,13 +19,14 @@ import './common/global.less';
 
 ReactDom.render(
     <Router>
-        <Layout>
-            <Switch>
-                <Route exact path="/" component={Home} />
-                <Route exact path="/mine" component={Mine} />
-                <Route exact path="/profile" component={Profile} />
-            </Switch>
-        </Layout>
+        <Switch>
+            <Layout>
+                <Switch>
+                    <Route exact path="/" component={Home} />
+                    <Route exact path="/mine" component={Mine} />
+                    <Route exact path="/profile" component={Profile} />
+                </Switch>
+            </Layout>
+        </Switch>
     </Router>
-    
 ,document.querySelector('#app'))

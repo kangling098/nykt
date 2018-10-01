@@ -33,10 +33,20 @@ module.exports = {
             {
                 test: /\.less$/,
                 use: [
-                    'style-loader',
+                    {loader:MiniCssExtractPlugin.loader},
                     'css-loader',
                     'postcss-loader',
                     'less-loader'
+                ],
+                // exclude:/node_modules/,
+                include:resolve(__dirname,'./src')
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    {loader:MiniCssExtractPlugin.loader},
+                    'css-loader',
+                    'postcss-loader'
                 ],
                 // exclude:/node_modules/,
                 include:resolve(__dirname,'./src')
