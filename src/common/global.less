@@ -13,3 +13,74 @@ ul,li {
 a {
     text-decoration: none;
 }
+img { content: normal !important; }
+[aspectratio] { 
+    position: relative; 
+}
+[aspectratio]::before {
+    content: '';
+    display: block;
+    width: 1px;
+    margin-left:
+    -1px; height: 0;
+}
+[aspectratio-content] {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    width: 100%; 
+    height: 100%; 
+}
+// @svg square { 
+//     @rect { 
+//         fill: var(--color, black); 
+//         width: 100%; 
+//         height: 100%; 
+//     } 
+// } 
+// .border-1-t:before {
+//     display: block;
+//     content: " ";
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 1px;
+//     background: #d5d5d5;
+//     transform: scaleY(0.5);
+// }
+// .border-1-l:before {
+//     display: block;
+//     content: " ";
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 1px;
+//     height: 100px;
+//     background: #d5d5d5;
+//     transform: scaleX(0.5);
+// }
+// .border-1-b:before {
+//     display: block;
+//     content: " ";
+//     position: absolute;
+//     bottom: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 1px;
+//     background: #d5d5d5;
+//     transform: scaleY(0.5);
+// }
+// .border-1-r:before {
+//     display: block;
+//     content: " ";
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     width: 1px;
+//     height: 100px;
+//     background: #d5d5d5;
+//     transform: scaleX(0.5);
+// }

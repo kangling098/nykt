@@ -24,7 +24,8 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets:['@babel/preset-env','@babel/preset-react']
+                        presets:['@babel/preset-env','@babel/preset-react'],
+                        plugins: ['@babel/plugin-proposal-class-properties',['@babel/plugin-proposal-decorators',{legacy:true}]]
                     }
                 },
                 exclude:/node_modules/,
@@ -33,7 +34,8 @@ module.exports = {
             {
                 test: /\.less$/,
                 use: [
-                    {loader:MiniCssExtractPlugin.loader},
+                    // {loader:MiniCssExtractPlugin.loader},
+                    'style-loader',
                     'css-loader',
                     'postcss-loader',
                     'less-loader'
@@ -44,7 +46,8 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [
-                    {loader:MiniCssExtractPlugin.loader},
+                    // {loader:MiniCssExtractPlugin.loader},
+                    'style-loader',
                     'css-loader',
                     'postcss-loader'
                 ],
@@ -67,7 +70,8 @@ module.exports = {
         port: 8010,
         hot: true,
         open:true,
-        host:'192.168.2.104'
+        // host:'192.168.2.104'
+        host:'localhost'
     },
     devtool: 'eval-source-map',
     optimization:{

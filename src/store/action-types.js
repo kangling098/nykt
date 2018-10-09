@@ -1,0 +1,1 @@
+export const CHANGE_CATEGORY = 'CHANGE_CATEGORY' // 改变分类
